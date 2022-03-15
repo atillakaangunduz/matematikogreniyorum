@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-schale=1.0">
+<meta charset="utf-8">
+<meta name="description" content="matematik öğreniyorum" />
+<meta name="keywords" content="matematik, öğreniyorum , Ayıcık , Ayıcık Doyurma , Soru , Toplama , Çıkarma , Çarpma , Bölme " />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>Çıkarma İşlemi Soruları </title>
+<link href="sorular.css" type="text/css" rel="stylesheet"/>
+
+</head>
+<body>
+<div id= "header1">
+<h1>MATEMATİK ÖĞRENİYORUM</h1>
+<h3>Çıkarma İşlemi Soruları</h3>
+<a href="../../matematik öğreniyorum.html"><button class="home"><i class="fa fa-home"></i> Ana Sayfa</button></a>
+<a href="sorularmenu.html" class="previous">&laquo;&laquo; Önceki Sayfa</a>
+</div>
+
+<div id="sorular">
+<br><br>
+<button id="soru1" > 0 </button>
+<button id="islem"> - </button>  
+<button id="soru2"> 0 </button> 
+<br><br>
+
+<button id="dogru">  0 </button>
+<button id="yanlıs">  0 </button>
+<br>
+<input style="height: 50px; width: 150px; font-size: 15px;" type="text" id="sonuc" maxlength="5">
+<button style="height: 50px; width: 150px; font-size: 15px;" id="cevap">Cevabı Gönder</button> 
+</div>
+
+
+
+
+</body>
+<script>
+    var dogru = 0 ,yanlıs = 0;
+    var sonuc = document.getElementById("sonuc");
+    var cvp = 0;
+    var s1,s2;
+   function yeniSoru(){
+    s1 =  Math.floor(Math.random()*25)+25;
+    s2 =  Math.floor(Math.random()*25);
+   
+    document.getElementById("soru1").innerHTML = s1;
+    document.getElementById("soru2").innerHTML = s2 ; 
+    document.getElementById("sonuc").value = ""; 
+   
+    }
+
+var input = document.getElementById("sonuc");    
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   document.getElementById("cevap").click();
+  }
+});
+
+window.onload=function(){
+    yeniSoru();
+     
+}
+
+   cevap.onclick = function(){
+    cvp = s1 - s2;
+
+   if (sonuc.value == cvp){  
+    dogru = dogru + 1;
+    document.getElementById("dogru").innerHTML = dogru ;
+    yeniSoru();
+       
+    }
+
+    else if(sonuc.value != cvp){
+    yanlıs = yanlıs + 1
+    alert("Cevap yanlış , Doğru cevap " + cvp)   ;
+    document.getElementById("yanlıs").innerHTML = yanlıs ;
+    yeniSoru();
+    }
+   
+    
+   }
+    
+</script>
+
+</html>

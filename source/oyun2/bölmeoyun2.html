@@ -1,0 +1,132 @@
+<html>
+<head>
+ 
+<meta name="viewport" content="width=device-width,initial-schale=1.0">
+<meta charset="utf-8">
+<meta name="description" content="matematik öğreniyorum" />
+<meta name="keywords" content="matematik, öğreniyorum , Ayıcık , Ayıcık Doyurma , Soru , Toplama , Çıkarma , Çarpma , Bölme " />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>Ayıcık Doyurma </title>
+<link href="oyun2.css" type="text/css" rel="stylesheet"/>
+
+
+</head>
+<body>
+<div id= "header1">
+<h1>MATEMATİK ÖĞRENİYORUM</h1>
+<h3>AYICIK DOYURMA</h3>
+<a href="../../matematik öğreniyorum.html"><button class="home"><i class="fa fa-home"></i> Ana Sayfa</button></a>
+<a href="oyun2menu.html" class="previous">&laquo;&laquo; Önceki Sayfa</a>
+</div>
+<br>
+<div id="bilgiler">
+
+<img style="padding: 10px; width:143 ; height: 180; margin-left: 125px;" src="teddy-bear.png" alt="Ayıcık" >
+<p style="margin-left: 125px; " id="ayıcıkcevap"> Açım Bana Yemek Ver </p> 
+<table>
+<tr>
+<td id="resim1"></td>
+<td id="resim2"></td>
+<td id="resim3"></td>
+<td id="resim4"></td>
+<td id="resim5"></td>
+<td id="resim6"></td>
+<td id="resim7"></td>
+<td id="resim8"></td>
+<td id="resim9"></td>
+<td id="resim10"></td>
+
+</tr>
+</table>
+<br><br>
+<button id="soru1" > 0 </button>
+<button id="islem"> / </button>  
+<button id="soru2"> 0 </button> 
+<br><br>
+
+
+<button id="dogru">  0 </button>
+<button id="yanlıs">  0 </button>
+<br>
+
+
+<input style="height: 50px; width: 150px; font-size: 15px;" type="text" id="sonuc" maxlength="5">
+<button style="height: 50px; width: 150px; font-size: 15px;" id="cevap">Cevabı Gönder</button> 
+
+</div>
+
+</body>
+<script>
+var dogru = 0 ,yanlıs = 0;
+var sonuc = document.getElementById("sonuc");
+var cvp = 0;
+var s1,s2;
+function yeniSoru() {
+    s1 =  Math.floor(Math.random()*50);
+    while(true){
+    s2 =  Math.floor(Math.random()*10);
+    if(s1%s2==0){
+    break;
+        }}
+    document.getElementById("soru1").innerHTML = s1;
+    document.getElementById("soru2").innerHTML = s2 ;  
+    document.getElementById("sonuc").value = "";
+    }
+
+var input = document.getElementById("sonuc");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   document.getElementById("cevap").click();
+  }
+});
+    
+window.onload=function() {
+    yeniSoru();
+     
+}
+
+cevap.onclick = function() {
+cvp = s1 / s2;
+
+if (sonuc.value == cvp) {  
+    dogru = dogru + 1;
+    document.getElementById("dogru").innerHTML = dogru ;
+    document.getElementById("resim"+dogru).innerHTML = "<img  src=armut.png >";  
+    yeniSoru();
+  }
+
+  
+else if(sonuc.value != cvp) {
+    yanlıs = yanlıs + 1
+    alert("Cevap yanlış , Doğru cevap " + cvp)   ;
+    document.getElementById("yanlıs").innerHTML = yanlıs ;
+    document.getElementById("resim"+dogru).innerHTML = "  ";
+    yeniSoru();
+    }
+
+    var toplam;
+    toplam = dogru - yanlıs;
+
+if(dogru == 9 ){
+    document.getElementById("ayıcıkcevap").innerHTML = "Yemek verdiğin için teşekkürler" ;
+    }
+    
+if(dogru == 10){
+    alert("Oyunu kazandınız");
+    window.location.reload(1);
+    }
+}
+    
+</script>
+
+</html>
